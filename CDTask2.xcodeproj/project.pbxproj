@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E6B016AE20A8E439006F6B83 /* CDLabelStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B016AD20A8E439006F6B83 /* CDLabelStruct.swift */; };
 		E6BE6AAF209B9CA7004E53C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BE6AAE209B9CA7004E53C0 /* AppDelegate.swift */; };
 		E6BE6AB1209B9CA7004E53C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BE6AB0209B9CA7004E53C0 /* ViewController.swift */; };
 		E6BE6AB4209B9CA7004E53C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6BE6AB2209B9CA7004E53C0 /* Main.storyboard */; };
 		E6BE6AB7209B9CA7004E53C0 /* CDTask2.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E6BE6AB5209B9CA7004E53C0 /* CDTask2.xcdatamodeld */; };
 		E6BE6AB9209B9CA9004E53C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6BE6AB8209B9CA9004E53C0 /* Assets.xcassets */; };
 		E6BE6ABC209B9CA9004E53C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6BE6ABA209B9CA9004E53C0 /* LaunchScreen.storyboard */; };
+		E6BE6AC4209B9E65004E53C0 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BE6AC3209B9E65004E53C0 /* CollectionViewController.swift */; };
+		E6BE6AC6209C013B004E53C0 /* DataCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6BE6AC5209C013B004E53C0 /* DataCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E6B016AD20A8E439006F6B83 /* CDLabelStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDLabelStruct.swift; sourceTree = "<group>"; };
 		E6BE6AAB209B9CA7004E53C0 /* CDTask2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CDTask2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6BE6AAE209B9CA7004E53C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6BE6AB0209B9CA7004E53C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +28,8 @@
 		E6BE6AB8209B9CA9004E53C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6BE6ABB209B9CA9004E53C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E6BE6ABD209B9CA9004E53C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6BE6AC3209B9E65004E53C0 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		E6BE6AC5209C013B004E53C0 /* DataCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +64,10 @@
 			children = (
 				E6BE6AAE209B9CA7004E53C0 /* AppDelegate.swift */,
 				E6BE6AB0209B9CA7004E53C0 /* ViewController.swift */,
+				E6B016AD20A8E439006F6B83 /* CDLabelStruct.swift */,
 				E6BE6AB2209B9CA7004E53C0 /* Main.storyboard */,
+				E6BE6AC5209C013B004E53C0 /* DataCell.swift */,
+				E6BE6AC3209B9E65004E53C0 /* CollectionViewController.swift */,
 				E6BE6AB8209B9CA9004E53C0 /* Assets.xcassets */,
 				E6BE6ABA209B9CA9004E53C0 /* LaunchScreen.storyboard */,
 				E6BE6ABD209B9CA9004E53C0 /* Info.plist */,
@@ -138,8 +147,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E6BE6AC4209B9E65004E53C0 /* CollectionViewController.swift in Sources */,
 				E6BE6AB7209B9CA7004E53C0 /* CDTask2.xcdatamodeld in Sources */,
 				E6BE6AB1209B9CA7004E53C0 /* ViewController.swift in Sources */,
+				E6BE6AC6209C013B004E53C0 /* DataCell.swift in Sources */,
+				E6B016AE20A8E439006F6B83 /* CDLabelStruct.swift in Sources */,
 				E6BE6AAF209B9CA7004E53C0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
