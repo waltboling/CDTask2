@@ -10,7 +10,8 @@ import UIKit
 
 class DataCell: UICollectionViewCell {
     
-    @IBOutlet weak var personCell: UITextView!
+    
+    @IBOutlet weak var personLabel: UILabel!
     
     override var isSelected: Bool {
         didSet {

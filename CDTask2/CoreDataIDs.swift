@@ -8,9 +8,10 @@
 
 import Foundation
 
-public struct coreDataLabels {
+public struct CoreDataIDs {
     static let firstName = "firstName"
     static let lastName = "lastName"
     static let department = "department"
     static let Person = "Person"
+    static let personsCache = "PersonsCache"
 }

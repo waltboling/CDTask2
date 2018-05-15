@@ -16,27 +16,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var departmentField: UITextField!
     
     var people = [Person]()
+    private let toCollectionView = "toCollectionView"
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
     @IBAction func saveButtonWasTapped(_ sender: UIButton) {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: coreDataLabels.Person, in: context)
+        let entity = NSEntityDescription.entity(forEntityName: CoreDataIDs.Person, in: context)
         let newPerson = NSManagedObject(entity: entity!, insertInto: context)
         
-        newPerson.setValue(firstNameField.text, forKey: coreDataLabels.firstName)
-        newPerson.setValue(lastNameField.text, forKey: coreDataLabels.lastName)
-        newPerson.setValue(departmentField.text, forKey: coreDataLabels.department)
-        
+        newPerson.setValue(firstNameField.text, forKey: CoreDataIDs.firstName)
+        newPerson.setValue(lastNameField.text, forKey: CoreDataIDs.lastName)
+        if departmentField.text != "" {
+        newPerson.setValue(departmentField.text, forKey: CoreDataIDs.department)
+        }
         appDelegate.saveContext()
     }
     
     @IBAction func showButtonWasTapped(_ sender: UIBarButtonItem) {
-        performSegue(withIdentifier: "toCollectionView", sender: self)
+        performSegue(withIdentifier: toCollectionView, sender: self)
     }
 }
 

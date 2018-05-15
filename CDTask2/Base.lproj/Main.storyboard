@@ -102,23 +102,21 @@
                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UF9-Hi-Tia">
-                                            <rect key="frame" x="2" y="2" width="46" height="46"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0eQ-3m-i3g">
+                                            <rect key="frame" x="4" y="14.5" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
+                                            <color key="highlightedColor" red="0.83820433940000005" green="0.83009506970000002" blue="0.8308972348" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </label>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="UF9-Hi-Tia" firstAttribute="top" secondItem="EMU-VT-2Ja" secondAttribute="top" constant="2" id="2WZ-zm-KIr"/>
-                                    <constraint firstItem="UF9-Hi-Tia" firstAttribute="leading" secondItem="EMU-VT-2Ja" secondAttribute="leading" constant="2" id="UAI-3k-ebQ"/>
-                                    <constraint firstAttribute="bottom" secondItem="UF9-Hi-Tia" secondAttribute="bottom" constant="2" id="X5g-af-1ia"/>
-                                    <constraint firstAttribute="trailing" secondItem="UF9-Hi-Tia" secondAttribute="trailing" constant="2" id="i5e-vk-mMW"/>
+                                    <constraint firstItem="0eQ-3m-i3g" firstAttribute="centerY" secondItem="EMU-VT-2Ja" secondAttribute="centerY" id="QgN-LX-Wtt"/>
+                                    <constraint firstItem="0eQ-3m-i3g" firstAttribute="centerX" secondItem="EMU-VT-2Ja" secondAttribute="centerX" id="Srd-sM-HSJ"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="personCell" destination="UF9-Hi-Tia" id="tjl-Ha-Wnc"/>
+                                    <outlet property="personLabel" destination="0eQ-3m-i3g" id="AkE-kW-Yv1"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>

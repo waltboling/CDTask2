@@ -16,17 +16,17 @@ class CollectionViewController: UICollectionViewController {
     var managedContext : NSManagedObjectContext?
     var fetchedResultsController: NSFetchedResultsController<Person>?
     var blockOperations: [BlockOperation] = []
-    
+    private let cellID = "Cell"
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         let managedContext = appDelegate.persistentContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<Person>(entityName: coreDataLabels.Person)
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: coreDataLabels.firstName, ascending: true)]
+        let fetchRequest = NSFetchRequest<Person>(entityName: CoreDataIDs.Person)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: CoreDataIDs.firstName, ascending: true)]
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: "PersonsCache")
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext, sectionNameKeyPath: nil, cacheName: CoreDataIDs.personsCache)
         fetchedResultsController?.delegate = self
         
         do {
@@ -50,10 +50,10 @@ class CollectionViewController: UICollectionViewController {
         //Fetch Data
         managedContext = appDelegate.persistentContainer.viewContext
         
-        let fetchRequest = NSFetchRequest<Person>(entityName: coreDataLabels.Person)
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: coreDataLabels.firstName, ascending: true), NSSortDescriptor(key: coreDataLabels.lastName, ascending: true), NSSortDescriptor(key: coreDataLabels.department, ascending: true)]
+        let fetchRequest = NSFetchRequest<Person>(entityName: CoreDataIDs.Person)
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: CoreDataIDs.firstName, ascending: true), NSSortDescriptor(key: CoreDataIDs.lastName, ascending: true), NSSortDescriptor(key: CoreDataIDs.department, ascending: true)]
         
-        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext!, sectionNameKeyPath: nil, cacheName: "PersonsCache")
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedContext!, sectionNameKeyPath: nil, cacheName: CoreDataIDs.personsCache)
         fetchedResultsController?.delegate = self
         
         do {
@@ -67,7 +67,6 @@ class CollectionViewController: UICollectionViewController {
     // MARK: UICollectionViewDataSource
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
@@ -85,30 +84,24 @@ class CollectionViewController: UICollectionViewController {
         }
         
         let person = fetchedResultsController.object(at: indexPath)
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! DataCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! DataCell
+
+        var displayName = [person.firstName, person.lastName]
+            .compactMap({ $0 }) // Removes the nil strings
+            .joined(separator: " ")
         
-        let firstName = person.firstName
-        let lastName = person.lastName
-        let department = person.department
+        // Returns blank if there is no display name
+        guard !displayName.isEmpty else {
+            cell.personLabel.text = "BLANK"
+            return cell
+        }
         
-        // check text items to display
-        if firstName != "" && firstName != nil && lastName != "" && lastName != nil
-            && department != "" && department != nil
-        {
-            cell.personCell.text = "\(firstName!) \(lastName!) in \(department!)"
+        // adds the department if it's not nil only
+        if let department = person.department {
+            displayName += " in \(department)"
         }
-        else if firstName != "" && firstName != nil && lastName != "" && lastName != nil
-        {
-            cell.personCell.text = "\(firstName!) \(lastName!)"
-        }
-        else if firstName != "" && firstName != nil
-        {
-            cell.personCell.text = "\(firstName!)"
-        }
-        else
-        {
-            cell.personCell.text = "BLANK"
-        }
+        
+        cell.personLabel.text = displayName
         return cell
     }
     
@@ -129,6 +122,8 @@ class CollectionViewController: UICollectionViewController {
         }
         let person = fetchedResultsController.object(at: indexPath)
         fetchedResultsController.managedObjectContext.delete(person)
+        
+        appDelegate.saveContext()
     }
 }
 
